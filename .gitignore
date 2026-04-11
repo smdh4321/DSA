@@ -1,0 +1,13 @@
+# IntelliJ
+.idea/
+*.iml
+
+# Build output
+out/
+target/
+
+# Node (if React present)
+node_modules/
+
+# OS files
+.DS_Store
