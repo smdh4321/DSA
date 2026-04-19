@@ -29,8 +29,8 @@ public class CombinationSumII {
     }
 
     public static void main(String[] args) {
-        int[] arr = {1,1,1,2,2};
-        int target = 4;
+        int[] arr = {10,1,2,7,6,1,5};
+        int target = 8  ;
         List<List<Integer>> ans = combinationSum2(arr, target);
         System.out.println(ans);
     }
