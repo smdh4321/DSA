@@ -1,18 +1,18 @@
 package strings;
 
-public class FirstNonRepeatingCharBF {
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+public class FirstNonRepeatingChar {
     static char firstNonRepeatingCharBF(String str){
         char c = '\0';
+        Map<Character,Integer> lmap = new LinkedHashMap<>();
         for(int i = 0; i < str.length(); i++){
-            char ch = str.charAt(i);
-            boolean isRepeated = true;
-            for(int j = 0; j < str.length(); j++){
-                if(i!=j && ch == str.charAt(j)){
-                    isRepeated = false;
-                }
-            }
-            if(isRepeated){
-                c = ch;
+            lmap.put(str.charAt(i), lmap.getOrDefault(str.charAt(i), 0) + 1);
+        }
+        for(char item : lmap.keySet()){
+            if(lmap.get(item) == 1){
+                c = item;
                 break;
             }
         }
