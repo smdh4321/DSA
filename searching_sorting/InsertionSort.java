@@ -1,4 +1,4 @@
-package sortings;
+package searching_sorting;
 
 public class InsertionSort {
     static void insertionSort(int[] arr){

@@ -1,4 +1,4 @@
-package sortings;
+package searching_sorting;
 
 public class SelectionSort {
     static void selectionSort(int[] arr){
