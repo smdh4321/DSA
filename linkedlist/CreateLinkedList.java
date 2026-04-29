@@ -9,15 +9,19 @@ class Node{
         this.next = null;
     }
 }
-public class CreateAndPrintLL {
-    static void printList(Node head){
+class LinkedList{
+    Node head;
+    void printList(){
         Node curr = head;
         while(curr != null){
             System.out.println(curr.data);
             curr = curr.next;
         }
     }
+}
+public class CreateLinkedList {
     public static void main(String[] args) {
+        LinkedList ll = new LinkedList();
         Node p1 = new Node(10);
         Node p2 = new Node(20);
         Node p3 = new Node(30);
@@ -27,8 +31,7 @@ public class CreateAndPrintLL {
         p2.next = p3;
         p3.next = p4;
 
-        Node head = p1;
-
-        printList(head);
+        ll.head = p1;
+        ll.printList();
     }
 }
