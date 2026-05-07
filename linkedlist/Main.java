@@ -14,9 +14,10 @@ class LinkedList{
     void printList(){
         Node curr = head;
         while(curr != null){
-            System.out.println(curr.data);
+            System.out.print(curr.data + " ");
             curr = curr.next;
         }
+        System.out.println();
     }
     void addNode(int ele){
         Node temp = new Node(ele);
@@ -67,15 +68,30 @@ class LinkedList{
             addNode(ele);
         }
     }
+
+    void removeFirst(){
+        if(head == null){
+            System.out.println("LinkedList is empty...");
+        }else if(head.next == null){
+            head = null;
+        }else if(head.next != null){
+            Node curr = head;
+            head = head.next;
+            curr.next = null;
+        }
+    }
 }
 public class Main {
     public static void main(String[] args) {
         int[] arr = {1,2,3,4,5};
         LinkedList ll = new LinkedList();
         ll.addNode(10);
-        ll.addEleAtFirst(50);
+        ll.addEleAtFirst(5);
         ll.addEleAtSpecifiedPos(2,100);
         ll.addAll(arr);
+        ll.printList();
+        System.out.println("--------------------------");
+        ll.removeFirst();
         ll.printList();
     }
 }
