@@ -30,6 +30,16 @@ class LinkedList{
             curr.next = temp;
         }
     }
+
+    void addEleAtFirst(int ele){
+        Node curr = new Node(ele);
+        if(head == null){
+            head = curr;
+        }else{
+            curr.next = head;
+            head = curr;
+        }
+    }
 }
 public class Main {
     public static void main(String[] args) {
@@ -38,6 +48,7 @@ public class Main {
         ll.addNode(20);
         ll.addNode(30);
         ll.addNode(40);
+        ll.addEleAtFirst(50);
         ll.printList();
     }
 }
