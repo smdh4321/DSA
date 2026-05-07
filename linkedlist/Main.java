@@ -61,16 +61,21 @@ class LinkedList{
             throw new IndexOutOfBoundsException();
         }
     }
+
+    void addAll(int[] arr){
+        for(int ele : arr){
+            addNode(ele);
+        }
+    }
 }
 public class Main {
     public static void main(String[] args) {
+        int[] arr = {1,2,3,4,5};
         LinkedList ll = new LinkedList();
         ll.addNode(10);
-        ll.addNode(20);
-        ll.addNode(30);
-        ll.addNode(40);
         ll.addEleAtFirst(50);
         ll.addEleAtSpecifiedPos(2,100);
+        ll.addAll(arr);
         ll.printList();
     }
 }
