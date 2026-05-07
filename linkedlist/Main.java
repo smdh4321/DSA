@@ -40,6 +40,27 @@ class LinkedList{
             head = curr;
         }
     }
+
+    void addEleAtSpecifiedPos(int index, int ele) throws IndexOutOfBoundsException{
+
+        try{
+            if(index == 0){
+                addEleAtFirst(ele);
+            }else{
+                int count = 0 ;
+                Node curr = head;
+                Node temp = new Node(ele);
+                while(count < index - 1){
+                    curr = curr.next;
+                    count++;
+                }
+                temp.next = curr.next;
+                curr.next = temp;
+            }
+        }catch (NullPointerException e){
+            throw new IndexOutOfBoundsException();
+        }
+    }
 }
 public class Main {
     public static void main(String[] args) {
@@ -49,6 +70,7 @@ public class Main {
         ll.addNode(30);
         ll.addNode(40);
         ll.addEleAtFirst(50);
+        ll.addEleAtSpecifiedPos(2,100);
         ll.printList();
     }
 }
