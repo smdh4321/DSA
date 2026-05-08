@@ -80,6 +80,57 @@ class LinkedList{
             curr.next = null;
         }
     }
+
+    void removeLast(){
+        if(head == null){
+            System.out.println("LinkedList is empty...");
+        }else if(head.next == null){
+            head = null;
+        }else if(head.next != null){
+            Node curr = head;
+            while(curr.next.next != null){
+                curr = curr.next;
+            }
+            curr.next = null;
+        }
+    }
+
+    int indexOfSpecificELe(int ele){
+        Node curr = head;
+        int index = 0;
+        while(curr != null){
+            if(curr.data == ele){
+                return index;
+            }
+            curr = curr.next;
+            index++;
+        }
+        return -1;
+    }
+
+    int lastIndexOfSpecificEle(int ele){
+        Node curr = head;
+        int index = 0;
+        int res = -1;
+        while(curr != null){
+            if(curr.data == ele){
+                res = index;
+            }
+            curr = curr.next;
+            index++;
+        }
+        return res;
+    }
+
+    int sizeOfLL(){
+        Node curr = head;
+        int size = 0;
+        while(curr != null){
+            curr = curr.next;
+            size++;
+        }
+        return size;
+    }
 }
 public class Main {
     public static void main(String[] args) {
@@ -89,9 +140,19 @@ public class Main {
         ll.addEleAtFirst(5);
         ll.addEleAtSpecifiedPos(2,100);
         ll.addAll(arr);
+        ll.addNode(1);
         ll.printList();
         System.out.println("--------------------------");
         ll.removeFirst();
         ll.printList();
+        System.out.println("--------------------------");
+        ll.removeLast();
+        ll.printList();
+        System.out.println("--------------------------");
+        System.out.println(ll.indexOfSpecificELe(1));
+        System.out.println("--------------------------");
+        System.out.println(ll.lastIndexOfSpecificEle(1));
+        System.out.println("--------------------------");
+        System.out.println(ll.sizeOfLL());
     }
 }
