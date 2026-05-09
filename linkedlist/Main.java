@@ -131,16 +131,36 @@ class LinkedList{
         }
         return size;
     }
+
+    void sortedSingleLL(int ele){
+        Node temp = new Node(ele);
+        if(head == null){
+            head = temp;
+        }else if(temp.data < head.data){
+            temp.next = head;
+            head = temp;
+        }else{
+            Node curr = head;
+            while(curr.next != null){
+                if(curr.next.data < temp.data){
+                    curr = curr.next;
+                }else{
+                    break;
+                }
+            }
+            temp.next = curr.next;
+            curr.next = temp;
+        }
+    }
 }
 public class Main {
     public static void main(String[] args) {
         int[] arr = {1,2,3,4,5};
         LinkedList ll = new LinkedList();
-        ll.addNode(10);
-        ll.addEleAtFirst(5);
-        ll.addEleAtSpecifiedPos(2,100);
         ll.addAll(arr);
-        ll.addNode(1);
+        ll.addNode(10);
+        ll.addEleAtFirst(20);
+        ll.addEleAtSpecifiedPos(6,15);
         ll.printList();
         System.out.println("--------------------------");
         ll.removeFirst();
@@ -154,5 +174,8 @@ public class Main {
         System.out.println(ll.lastIndexOfSpecificEle(1));
         System.out.println("--------------------------");
         System.out.println(ll.sizeOfLL());
+        ll.sortedSingleLL(6);
+        System.out.println("--------------------------");
+        ll.printList();
     }
 }
