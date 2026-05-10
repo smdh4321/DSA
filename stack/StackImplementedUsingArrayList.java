@@ -30,7 +30,7 @@ class Stack{
         return t;
     }
 }
-public class Main {
+public class StackImplementedUsingArrayList {
     public static void main(String[] args) throws  Exception{
         Stack myStack = new Stack();
         myStack.push(10);
