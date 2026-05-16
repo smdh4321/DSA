@@ -76,6 +76,16 @@ class Tree{
             return Math.max(Math.max(l,r), root.data);
         }
     }
+
+    static int minimum(Node root){
+        if(root == null){
+            return Integer.MAX_VALUE;
+        }else{
+            int l = minimum(root.left);
+            int r = minimum(root.right);
+            return Math.min(Math.min(l,r), root.data);
+        }
+    }
 }
 public class DFS {
     public static void main(String[] args) {
@@ -98,5 +108,6 @@ public class DFS {
         System.out.println();
         System.out.println(Tree.size(root));
         System.out.println(Tree.maximum(root));
+        System.out.println(Tree.minimum(root));
     }
 }
