@@ -46,6 +46,16 @@ class Tree{
         }
     }
 
+    static int size(Node root){
+        if(root == null){
+            return 0;
+        }else{
+            int l = size(root.left);
+            int r = size(root.right);
+            return l + r + 1;
+        }
+    }
+
     static void printKDist(Node root, int k){
         if(root != null){
             if(k == 0){
@@ -54,6 +64,16 @@ class Tree{
                 printKDist(root.left, k - 1);
                 printKDist(root.right, k - 1);
             }
+        }
+    }
+
+    static int maximum(Node root){
+        if(root == null){
+            return Integer.MIN_VALUE;
+        }else{
+            int l = maximum(root.left);
+            int r = maximum(root.right);
+            return Math.max(Math.max(l,r), root.data);
         }
     }
 }
@@ -76,5 +96,7 @@ public class DFS {
         System.out.println(Tree.height(root));
         Tree.printKDist(root,2);
         System.out.println();
+        System.out.println(Tree.size(root));
+        System.out.println(Tree.maximum(root));
     }
 }
