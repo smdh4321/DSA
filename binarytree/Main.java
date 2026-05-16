@@ -35,6 +35,27 @@ class Tree{
             System.out.print(root.data+" ");
         }
     }
+
+    static int height(Node root){
+        if(root == null){
+            return 0;
+        }else{
+            int l = height(root.left);
+            int r = height(root.right);
+            return Math.max(l,r) +  1;
+        }
+    }
+
+    static void printKDist(Node root, int k){
+        if(root != null){
+            if(k == 0){
+                System.out.print(root.data + " ");
+            }else{
+                printKDist(root.left, k - 1);
+                printKDist(root.right, k - 1);
+            }
+        }
+    }
 }
 public class Main {
     public static void main(String[] args) {
@@ -45,12 +66,15 @@ public class Main {
         root.left.left = new Node(40);
         root.right.left = new Node(50);
         root.right.right = new Node(60);
-
+        root.right.right.left = new Node(70);
         Tree.inorder(root);
         System.out.println();
         Tree.preorder(root);
         System.out.println();
         Tree.postorder(root);
+        System.out.println();
+        System.out.println(Tree.height(root));
+        Tree.printKDist(root,2);
         System.out.println();
     }
 }
