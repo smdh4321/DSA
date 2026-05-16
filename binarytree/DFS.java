@@ -57,7 +57,7 @@ class Tree{
         }
     }
 }
-public class Main {
+public class DFS {
     public static void main(String[] args) {
         Node root = null;
         root = new Node(10);
