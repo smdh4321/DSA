@@ -152,6 +152,23 @@ class LinkedList{
             curr.next = temp;
         }
     }
+
+    void pairwiseSwap(){
+        Node first = head;
+        Node prev = null;
+        while(first != null && first.next != null){
+            Node second = first.next;
+            first.next = second.next;
+            second.next = first;
+            if(prev == null){
+                head = second;
+            }else{
+                prev.next = second;
+            }
+            prev = first;
+            first = first.next;
+        }
+    }
 }
 public class Main {
     public static void main(String[] args) {
@@ -160,7 +177,7 @@ public class Main {
         ll.addAll(arr);
         ll.addNode(10);
         ll.addEleAtFirst(20);
-        ll.addEleAtSpecifiedPos(6,15);
+//        ll.addEleAtSpecifiedPos(6,15);
         ll.printList();
         System.out.println("--------------------------");
         ll.removeFirst();
@@ -176,6 +193,8 @@ public class Main {
         System.out.println(ll.sizeOfLL());
         ll.sortedSingleLL(6);
         System.out.println("--------------------------");
+        ll.printList();
+        ll.pairwiseSwap();
         ll.printList();
     }
 }
